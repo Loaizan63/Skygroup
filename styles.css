@@ -76,6 +76,109 @@ body {
     color: #000;
 }
 
+/* About Section */
+.about {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.2rem;
+}
+
+/* Models Section */
+.models {
+    padding: 50px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.models h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.model-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.model-card {
+    width: 200px;
+    text-align: center;
+}
+
+.model-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.model-card h3 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+/* Contact Section */
+.contact {
+    padding: 50px 20px;
+    background-color: #ffcc00;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.contact input,
+.contact textarea {
+    padding: 10px;
+    width: 80%;
+    max-width: 500px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact button {
+    background-color: #000;
+    color: #ffcc00;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.contact button:hover {
+    background-color: #ffcc00;
+    color: #000;
+}
+
+/* Footer */
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
 /* Modal de Confirmación de Edad */
 .modal {
     display: none; /* Ocultamos el modal por defecto */
@@ -123,12 +226,4 @@ body {
 .body-blur .content {
     filter: blur(5px); /* Aplica el desenfoque */
     pointer-events: none; /* Evita interacciones con los elementos desenfocados */
-}
-
-/* Estilos del Footer */
-.footer {
-    background-color: #000;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
 }
