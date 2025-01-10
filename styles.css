@@ -9,6 +9,7 @@ body {
     font-family: Arial, sans-serif;
     color: #333;
     background-color: #fff;
+    overflow: hidden; /* Evita scroll mientras se muestra el modal */
 }
 
 /* Header */
@@ -75,102 +76,56 @@ body {
     color: #000;
 }
 
-/* About Section */
-.about {
-    padding: 50px 20px;
-    background-color: #f4f4f4;
-    text-align: center;
-}
-
-.about h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.about p {
-    font-size: 1.2rem;
-}
-
-/* Models Section */
-.models {
-    padding: 50px 20px;
-    background-color: #fff;
-    text-align: center;
-}
-
-.models h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.model-cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.model-card {
-    width: 200px;
-    text-align: center;
-}
-
-.model-card img {
+/* Modal de Confirmación de Edad */
+.modal {
+    display: none; /* Ocultamos el modal por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Asegura que el modal esté por encima de todo */
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
     border-radius: 10px;
-}
-
-.model-card h3 {
-    margin-top: 10px;
-    font-size: 1.2rem;
-}
-
-/* Contact Section */
-.contact {
-    padding: 50px 20px;
-    background-color: #ffcc00;
     text-align: center;
+    max-width: 500px;
+    width: 90%;
 }
 
-.contact h2 {
-    font-size: 2.5rem;
+.modal h2 {
+    font-size: 2rem;
     margin-bottom: 20px;
 }
 
-.contact form {
+.modal p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.modal-buttons {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    margin-top: 20px;
+    justify-content: space-around;
 }
 
-.contact input,
-.contact textarea {
-    padding: 10px;
-    width: 80%;
-    max-width: 500px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.modal-buttons button {
+    width: 45%;
+    font-size: 1.1rem;
 }
 
-.contact button {
-    background-color: #000;
-    color: #ffcc00;
-    padding: 10px 20px;
-    font-weight: bold;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
+/* Efecto de Desenfoque en toda la página EXCEPTO el modal */
+.body-blur .content {
+    filter: blur(5px); /* Aplica el desenfoque */
+    pointer-events: none; /* Evita interacciones con los elementos desenfocados */
 }
 
-.contact button:hover {
-    background-color: #ffcc00;
-    color: #000;
-}
-
-/* Footer */
+/* Estilos del Footer */
 .footer {
     background-color: #000;
     color: #fff;
