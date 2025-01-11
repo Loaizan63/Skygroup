@@ -1,36 +1,39 @@
-// Mostrar el modal de confirmación de edad al cargar la página
-window.onload = function() {
-    const modal = document.getElementById('ageConfirmationModal');
-    const acceptButton = document.getElementById('acceptButton');
-    const declineButton = document.getElementById('declineButton');
-    const body = document.body;
+// Función para comprobar si ya se ha confirmado la edad
+function checkAgeConfirmation() {
+    const ageConfirmed = localStorage.getItem('ageConfirmed');
+    
+    if (ageConfirmed === 'true') {
+        // Si ya se ha confirmado la edad, no mostrar el modal
+        document.getElementById('ageConfirmationModal').style.display = 'none';
+        document.body.classList.remove('body-blur'); // Asegura que el blur se elimine si ya fue confirmado
+    } else {
+        // Si no se ha confirmado la edad, mostrar el modal
+        document.getElementById('ageConfirmationModal').style.display = 'flex';
+        document.body.classList.add('body-blur'); // Aplicar el blur en el resto de la página
+    }
+}
 
-    // Mostrar el modal
-    modal.style.display = "flex";
+// Función para manejar el clic en el botón "Aceptar"
+function acceptAgeConfirmation() {
+    // Guardar en localStorage que el usuario ya ha confirmado su edad
+    localStorage.setItem('ageConfirmed', 'true');
+    
+    // Cerrar el modal
+    document.getElementById('ageConfirmationModal').style.display = 'none';
+    
+    // Eliminar el blur en el resto de la página
+    document.body.classList.remove('body-blur');
+}
 
-    // Aplicar el efecto de desenfoque en todo el contenido de la página, EXCEPTO el modal
-    body.classList.add('body-blur');
+// Función para manejar el clic en el botón "Rechazar"
+function declineAgeConfirmation() {
+    // Redirigir a otra página si el usuario no acepta
+    window.location.href = "https://www.google.com"; // Puedes cambiar esta URL a la página que prefieras
+}
 
-    // Si el usuario acepta
-    acceptButton.onclick = function() {
-        modal.style.display = "none"; // Cierra el modal
-        body.classList.remove('body-blur'); // Elimina el desenfoque
-        alert("Bienvenido a Sky Models. ¡Disfruta explorando nuestra página!");
-    };
+// Asignar eventos a los botones del modal
+document.getElementById('acceptButton').addEventListener('click', acceptAgeConfirmation);
+document.getElementById('declineButton').addEventListener('click', declineAgeConfirmation);
 
-    // Si el usuario rechaza
-    declineButton.onclick = function() {
-        modal.style.display = "none"; // Cierra el modal
-        body.classList.remove('body-blur'); // Elimina el desenfoque
-        alert("Lamentablemente, necesitas ser mayor de 18 años para acceder a este sitio.");
-        window.location.href = "https://www.google.com"; // Redirige a otra página si no es mayor de 18
-    };
-};
-
-// Formulario de contacto
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
-    // Aquí podrías agregar lógica para enviar el formulario al backend si es necesario
-    document.getElementById('contactForm').reset(); // Resetea el formulario después de enviarlo
-});
+// Verificar si el usuario ya ha confirmado la edad cuando se carga la página
+window.onload = checkAgeConfirmation;
