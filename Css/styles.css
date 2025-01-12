@@ -1,0 +1,341 @@
+/* Reset de estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #fff;
+    /* No aplicamos blur al body directamente, sino a la clase body-blur */
+}
+
+/* Header */
+.header {
+    background-color: #000;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    height: 50px;
+}
+
+.header nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.header nav ul li {
+    margin: 0 15px;
+}
+
+.header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.header nav ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #ffcc00;
+    color: #000;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: #000;
+    color: #ffcc00;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background-color: #ffcc00;
+    color: #000;
+}
+
+/* About Section */
+.about {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.2rem;
+}
+
+/* Galería */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.gallery img {
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Models Section */
+.models {
+    padding: 50px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.models h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.model-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.model-card {
+    width: 200px;
+    text-align: center;
+}
+
+.model-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.model-card h3 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+/* Contact Section */
+.contact {
+    padding: 50px 20px;
+    background-color: #ffcc00;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.contact input,
+.contact textarea {
+    padding: 10px;
+    width: 80%;
+    max-width: 500px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact button {
+    background-color: #000;
+    color: #ffcc00;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.contact button:hover {
+    background-color: #ffcc00;
+    color: #000;
+}
+
+/* Footer */
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Modal de Confirmación de Edad */
+.modal {
+    display: none; /* Ocultamos el modal por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Asegura que el modal esté por encima de todo */
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+.modal h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.modal p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.modal-buttons button {
+    width: 45%;
+    font-size: 1.1rem;
+}
+
+/* Efecto de Desenfoque en toda la página EXCEPTO los elementos que queremos excluir */
+.body-blur .content {
+    filter: blur(55px); /* Aplica el desenfoque */
+    pointer-events: none; /* Evita interacciones con los elementos desenfocados */
+}
+
+/* Excluir .model y mensaje push-up del blur */
+.body-blur .model,
+.body-blur #push-up-message {
+    filter: none; /* Excluye estos elementos del filtro de desenfoque */
+    pointer-events: auto; /* Permite interactuar con estos elementos */
+}
+
+/* Estilo del mensaje push-up */
+#push-up-message {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    text-align: center;
+    display: none;
+    z-index: 9999; /* Asegura que el mensaje esté por encima de todo */
+}
+
+/* Estilos para la gestión de empleados */
+.employee-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.employee-form label {
+    font-weight: bold;
+}
+
+.employee-form input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.employee-form button {
+    background-color: #000;
+    color: #ffcc00;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.employee-form button:hover {
+    background-color: #ffcc00;
+    color: #000;
+}
+
+/* Lista de perfiles de empleados */
+.employee-list {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.employee-profile {
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.employee-profile p {
+    font-size: 1.2rem;
+}
+
+.delete-btn {
+    background-color: #ff0000;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+}
+
+.style1 {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
